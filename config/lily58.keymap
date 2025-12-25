@@ -1,1 +1,25 @@
+/ {
+    keymap {
+        compatible = "zmk,keymap";
 
+        default_layer {
+            bindings = <
+                &kp Q    &kp W    &kp E    &kp R    &kp T           &kp Y    &kp U    &kp I    &kp O    &kp P
+                &kp A    &kp S    &kp D    &kp F    &kp G           &kp H    &kp J    &kp K    &kp L    &kp SEMI
+                &kp Z    &kp X    &kp C    &kp V    &kp B           &kp N    &kp M    &kp COMMA &kp DOT  &kp SLASH
+
+                                   &kp LCTRL &kp SPACE        &kp ENTER &kp RALT
+            >;
+        };
+
+        fn_layer {
+            bindings = <
+                &kp F1   &kp F2   &kp F3   &kp F4   &kp F5          &kp F6   &kp F7   &kp F8   &kp F9   &kp F10
+                &kp ESC  &kp TAB  &kp UP   &kp BSPC &kp DEL         &kp LEFT &kp DOWN &kp RIGHT &kp MINUS &kp EQUAL
+                &kp GRAVE &kp LBKT &kp RBKT &kp BSLH &kp PIPE       &kp HOME &kp PGDN &kp PGUP &kp END  &kp F12
+
+                                   &mo FN   &kp SPACE        &kp ENTER &kp RALT
+            >;
+        };
+    };
+};
