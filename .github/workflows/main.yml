@@ -1,0 +1,31 @@
+name: Build ZMK firmware
+
+on:
+  push:
+    paths:
+      - "config/**"
+      - "build.yaml"
+      - ".github/workflows/**"
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Cache west modules
+        uses: actions/cache@v4
+        with:
+          path: |
+            modules
+            zephyr
+          key: ${{ runner.os }}-west-${{ hashFiles('**/west.yml') }}
+
+      - name: Build ZMK
+        uses: zmkfirmware/zmk-build-action@v1
+        with:
+          board: nice_nano_v2
+          shield: lily58_left lily58_right
+
